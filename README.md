@@ -24,10 +24,4 @@ A Microsoft lançou uma IA de ponta chamada TrOCR (Transformer-based Optical Cha
 Ação: Usaremos as bibliotecas Transformers e PyTorch em Python (treinar_modelo.py). A IA treinará conectando imagens das caligrafias tortuosas aos textos que lhes pertencem. Os séculos 17 ao 19 costumam utilizar um português diferente (ex: pharmacia, scripto), e o fine-tuning ensinará essa peculiaridade à IA.
 4. O Programa de Execução Final (Inferência)
 Ação: Entregarei para você um arquivo como transcrever_documento.py. Você aponta para a "foto123.jpg" recém digitalizada, o programa corta as linhas automaticamente, joga todas as linhas na IA treinada, e te retorna um arquivo .txt com toda a documentação transcrita.
-User Review Required
-IMPORTANT
 
-Precisamos tomar uma decisão arquitetural sobre como as suas transcrições atuais estão organizadas no computador, pois isso determina a dificuldade de avançarmos.
-
-As transcrições que você tem seguem exatamente as mesmas "quebras de linha" de parágrafo que existem fisicamente escrito no papel envelhecido? Ou elas são um bloco de texto corrido sem considerar quando a linha física da tinta acaba?
-No seu computador (C:\Users\takem\...), você tem noção da capacidade de hardware dele? Para rodar um grande montante de imagens precisaremos avaliar se você possui alguma placa de vídeo (como uma NVIDIA) ou se rodaremos tudo usando o processador padrão.
