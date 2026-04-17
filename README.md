@@ -1,26 +1,58 @@
-# Plano de Implementação: Transcrição Histórica de Jundiaí
+# 🖋️ PaleographIA: Transcription System for Jundiaí's Historical Archive
 
-O objetivo deste projeto é construir um programa em Python usando Machine Learning (Aprendizado de Máquina) focado em Reconhecimento de Texto Manuscrito (HTR) para digitalizar o acervo histórico de Jundiaí (1657 a 1889).
+**PaleographIA** is a specialized high-performance HTR (Handwritten Text Recognition) system designed specifically for the historical documentation of Jundiaí (1657 - 1889). 
 
-## Desafio Principal: Paleografia e Imagens em Alta Resolução
-Documentos de 1657 a 1889 apresentam desafios imensos como variação caligráfica, desgaste natural do papel antigo, manchas e tinta enfraquecida. Nossa estratégia será "ensinar" uma IA inteligente, que já sabe ler letras de forma genérica, a se especializar no contexto daquela época através das transcrições que você já tem.
+The system leverages state-of-the-art AI architecture (**TrOCR**) to decipher irregular caligraphy, paper textures from the 17th-19th centuries, and archaic Portuguese terminology.
 
-## Como o Programa irá funcionar? (Arquitetura)
+![Project Status](https://img.shields.io/badge/STATUS-OPERACIONAL-green?style=for-the-badge)
+![UI Mode](https://img.shields.io/badge/INTERFACE-SPECIALIST_MODE-purple?style=for-the-badge)
+![Hardware](https://img.shields.io/badge/HARDWARE-CPU_SAFE_MODE-blue?style=for-the-badge)
 
-Vamos dividir a criação do projeto em etapas e criaremos scripts separados de Python para cada uma:
+## 🌟 Key Features
 
-### 1. Processamento e Recorte da Imagem (Segmentação de Linhas)
-A IA não lê páginas enormes de uma vez; ela é feita para ler **linhas fragmentadas**.
-Teremos que pegar suas fotos de alta resolução e aplicar filtros de Visão Computacional (ex: OpenCV).
-*   **Ação:** Um script (`processador_imagens.py`) para encontrar as linhas manuscritas nas fotos grandes e salvar cada linha como uma imagem fina e separada.
+### 🧠 Deep Calibration for Portuguese Paleography
+Unlike generic OCRs, PaleographIA uses a specialized fine-tuning process to understand the nuances of 300-year-old Italian paper texture and the specific cursive styles of regional scribes.
+- **Literal Decoding (Greedy Search)**: Forced character-by-character interpretation to prevent English-biased hallucinations.
+- **Noise Filtering**: Advanced CV2 filters to ignore vergê paper textures and ink stains.
 
-### 2. O Problema do Alinhamento (O "Treino")
-Você tem a foto da página e a transcrição da página. Mas, para treinar a IA matematicamente, precisamos dar na mão dela: "A imagem X (Apenas desta linha)" significa exatamente o "Texto Y". 
-*   **Ação:** Vamos criar uma lógia (`preparar_dados.py`) para associar os recortes das linhas aos textos que você tem. 
+### 💻 Hardware Stabilization (CPU Safe Mode)
+Designed to run on notebook hardware (16GB RAM / GTX 1050 Ti) without causing system crashes or overheating.
+- **Thread Limiting**: Controlled processing power to prevent TDR (Timeout Detection and Recovery) errors.
+- **Cooling Pauses**: Wait times between line inferences to keep hardware temperatures stable.
 
-### 3. A Inteligência Artificial (TrOCR)
-A Microsoft lançou uma IA de ponta chamada **TrOCR (Transformer-based Optical Character Recognition)**. Ela funciona super bem para caligrafias complexas e cursivas com letras contínuas.
-*   **Ação:** Usaremos as bibliotecas `Transformers` e `PyTorch` em Python (`treinar_modelo.py`). A IA treinará conectando imagens das caligrafias tortuosas aos textos que lhes pertencem. Os séculos 17 ao 19 costumam utilizar um português diferente (ex: pharmacia, scripto), e o fine-tuning ensinará essa peculiaridade à IA.
+### 🎨 Expert-First Interface
+A distraction-free, high-contrast dark environment designed for long professional transcription sessions.
+- **Intelligent Sidebar**: Real-time editor with horizontal/vertical manuscript sync.
+- **Segmented Visualization**: Visual overlays on the document to track transcription progress line-by-line.
 
-### 4. O Programa de Execução Final (Inferência)
-*   **Ação:** Entregarei para você um arquivo como `transcrever_documento.py`. Você aponta para a "foto123.jpg" recém digitalizada, o programa corta as linhas automaticamente, joga todas as linhas na IA treinada, e te retorna um arquivo .txt com toda a documentação transcrita.
+## 🛠️ Project Structure
+
+```text
+├── client/          # Next.js Frontend (Expert UI)
+├── server/          # FastAPI Backend (AI Inference)
+├── data/
+│   ├── raw/         # Historical scans
+│   └── processed/   # Segmented lines for training
+├── models/          # Specialized TrOCR weights (TrOCR-Jundiahy)
+└── scripts/         # Automated training & processing scripts
+```
+
+## 🚀 Getting Started
+
+1. **Start the Backend**:
+   Run the safe starter: `.\start_safe.bat`
+   
+2. **Start the Frontend**:
+   ```bash
+   cd client
+   npm run dev
+   ```
+
+3. **Transcription**:
+   Upload a scan, wait for the AI segmentation, and use the **Smart Editor** to finalize the transcription.
+
+## 📜 History & Context
+This project was developed to preserve and digitalize the history of Jundiaí, providing historians with a powerful assisted transcription stool that respects the complexity of original manuscripts while using modern AI to speed up the process.
+
+---
+*Developed for the Jundiaí Historical Archive (1615 - 2026).*
