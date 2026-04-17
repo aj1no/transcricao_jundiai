@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PaleographIA - Cyber Grape Edition</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body { background-color: #0b0114; font-family: 'Space Grotesk', sans-serif; }
+        .glass { background: rgba(25, 10, 45, 0.6); backdrop-filter: blur(16px); border: 1px solid rgba(168, 85, 247, 0.2); }
+        .grape-glow { box-shadow: 0 0 20px rgba(168, 85, 247, 0.4); }
+        .grape-text-glow { text-shadow: 0 0 10px rgba(192, 132, 252, 0.8); }
+        .modern-scrollbar::-webkit-scrollbar { width: 4px; }
+        .modern-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .modern-scrollbar::-webkit-scrollbar-thumb { background: #6b21a8; border-radius: 10px; }
+        .neon-border { border: 1px solid rgba(168, 85, 247, 0.5); box-shadow: inset 0 0 10px rgba(168, 85, 247, 0.2); }
+        code { font-family: 'JetBrains Mono', monospace; }
+        
+        @keyframes pulse-grape {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+        .pulse { animation: pulse-grape 3s infinite; }
+        @keyframes scan {
+            from { top: 0%; }
+            to { top: 100%; }
+        }
+        .scan-line { animation: scan 4s linear infinite; }
+    </style>
+</head>
+<body class="text-purple-100 h-screen flex flex-col overflow-hidden">
+
+    <!-- Navbar -->
+    <nav class="glass px-8 py-4 flex justify-between items-center z-50 border-b border-purple-500/20">
+        <div class="flex items-center gap-4">
+            <div>
+                <h1 class="text-4xl font-black tracking-tighter grape-text-glow">Paleograph<span class="text-purple-400">IA</span></h1>
+            </div>
+        </div>
+        <div class="flex items-center gap-8">
+            <div class="hidden lg:flex gap-6 text-xs font-bold uppercase tracking-widest text-purple-300/50">
+                <a href="#" class="hover:text-purple-400 transition">Dashboard</a>
+                <a href="#" class="hover:text-purple-400 transition">Arquivo</a>
+                <a href="#" class="hover:text-purple-400 transition">Glossário LGP</a>
+            </div>
+            <button class="bg-purple-600 hover:bg-purple-500 text-white px-6 py-2.5 rounded-full text-xs font-bold transition shadow-lg grape-glow border border-purple-400/30">
+                NOVO SCAN
+            </button>
+        </div>
+    </nav>
+
+    <!-- App Body -->
+    <main class="flex-1 flex p-6 gap-6 overflow-hidden">
+        
+        <!-- Viewer Panel (Manuscript) -->
+        <section class="flex-[3] relative rounded-[2rem] overflow-hidden glass grape-glow flex flex-col group">
+            <div class="p-5 flex justify-between items-center bg-purple-950/20 border-b border-purple-500/10">
+                <div class="flex gap-4 items-center">
+                    <span class="w-2 h-2 bg-purple-500 rounded-full pulse"></span>
+                    <h2 class="text-xs font-bold uppercase tracking-widest text-purple-300">Visualizador de Origem</h2>
+                </div>
+                <div class="flex gap-2 text-sm">
+                    <button class="w-8 h-8 flex items-center justify-center bg-purple-900/40 hover:bg-purple-800 rounded-lg transition">+</button>
+                    <button class="w-8 h-8 flex items-center justify-center bg-purple-900/40 hover:bg-purple-800 rounded-lg transition">-</button>
+                </div>
+            </div>
+            <div class="flex-1 flex items-center justify-center p-12 bg-black/40">
+                <div class="relative">
+                    <div class="w-[480px] h-[640px] bg-purple-950/20 rounded-2xl overflow-hidden shadow-2xl relative neon-border">
+                        <img src="https://images.unsplash.com/photo-1585771724684-2428f73b228f?auto=format&fit=crop&q=80&w=500" class="w-full h-full object-cover opacity-40 grayscale sepia-[0.2] contrast-125" alt="Historical Document">
+                        <div class="absolute top-[32%] left-0 w-full h-14 bg-purple-600/10 border-y border-purple-500/40 flex items-center px-8 transition-all hover:bg-purple-600/20 group-hover:border-purple-400">
+                            <div class="flex flex-col">
+                                <span class="text-[9px] font-black text-purple-400 uppercase tracking-tighter">Line Segment ID: JUND-1831-P100-L8</span>
+                                <span class="text-[11px] font-bold text-white/80 grape-text-glow">Lendo...</span>
+                            </div>
+                        </div>
+                        <div class="absolute top-0 left-0 w-full h-1 bg-purple-500/50 blur-[2px] shadow-[0_0_15px_#a855f7] scan-line"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Editor & Context Panel -->
+        <section class="flex-[2] flex flex-col gap-6 overflow-hidden">
+            
+            <!-- Transcription Editor -->
+            <div class="flex-1 glass rounded-[2rem] p-8 flex flex-col neon-border">
+                <div class="flex justify-between items-start mb-6">
+                    <div>
+                        <h2 class="text-sm font-bold uppercase tracking-widest text-purple-400 mb-1">Transcrição IA</h2>
+                        <p class="text-[10px] text-purple-300/40">Powered by PaleographIA Core v2.4 (Grape)</p>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-xl font-bold text-purple-200">92%</span>
+                        <p class="text-[9px] text-purple-400 uppercase font-black">Confiança</p>
+                    </div>
+                </div>
+                
+                <textarea class="flex-1 bg-transparent border-0 outline-none resize-none text-purple-100/90 leading-loose text-lg modern-scrollbar pr-4 placeholder-purple-900" spellcheck="false" placeholder="Aguardando processamento...">Transcrição das Atas da Câmara Municipal - 1829 a 1833
+-
+Sessão de 11 de Julho de 1831
+[fl.] 100
+Prado
+(...)
+Leu-se um Projeto de Posturas com treze artigos seguintes
+Artigo 1 - Ninguém poderá vender armas ofensivas ou defensivas...</textarea>
+                
+                <div class="mt-6 pt-6 border-t border-purple-500/10 flex gap-4">
+                    <button class="flex-[2] bg-purple-600 text-white py-4 rounded-2xl font-bold hover:bg-purple-500 transition shadow-lg grape-glow">Sincronizar Arquivo</button>
+                    <button class="flex-1 bg-white/5 hover:bg-white/10 text-white py-4 rounded-2xl font-bold transition border border-white/5">Exportar</button>
+                </div>
+            </div>
+
+            <!-- LGP Context Panel -->
+            <div class="h-56 glass rounded-[2rem] p-8 flex flex-col border-purple-500/30">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-1.5 h-6 bg-purple-500 rounded-full shadow-[0_0_10px_#a855f7]"></div>
+                    <h3 class="text-xs font-bold tracking-widest uppercase text-purple-300">Língua Geral Paulista (LGP)</h3>
+                </div>
+                <div class="flex-1 overflow-y-auto modern-scrollbar">
+                    <div class="bg-purple-950/30 p-4 rounded-xl border border-purple-500/10">
+                        <p class="text-sm text-purple-200 leading-relaxed italic">
+                            <span class="text-purple-400 font-bold not-italic">"Itatiba":</span> Termo detectado. Na LGP local, refere-se a "Pedra Erguida". Contexto histórico: Região sob jurisdição administrativa de Jundiaí em 1831.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="h-10 bg-black/60 border-t border-purple-500/20 flex items-center px-10 justify-between text-[10px] uppercase font-bold tracking-[0.2em]">
+        <div class="flex gap-8 text-purple-500/60">
+            <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-green-500 rounded-full"></span> Sistema Online</span>
+            <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-purple-500 rounded-full shadow-[0_0_5px_#a855f7]"></span> GPU: GTX 1050 Ti</span>
+        </div>
+        <div class="text-purple-500/40">
+            Paleograph<span class="text-purple-500">IA</span> &copy; 2026 - Terra da Uva
+        </div>
+    </footer>
+
+</body>
+</html>

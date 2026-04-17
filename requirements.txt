@@ -1,0 +1,12 @@
+opencv-python
+numpy
+torch
+torchvision
+transformers
+pillow
+psutil
+scipy
+jiwer
+sentencepiece
+protobuf
+accelerate

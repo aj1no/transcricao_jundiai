@@ -1,0 +1,13 @@
+Texto importantes
+
+
+
+Antigravity Kit
+
+Para utilizar precisar rodar isso no terminal:
+##cmd /c ag-kit init
+
+Para iniciar a ia 
+
+cd c:\Users\takem\.gemini\antigravity\scratch\transcricao_jundiai
+start_safe.bat

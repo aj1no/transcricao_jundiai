@@ -1,0 +1,19 @@
+# Ambientes Virtuais Python
+venv/
+env/
+.env
+
+# Arquivos de Imagens Originais e Testes (muito pesados para o Git)
+*.jpg
+*.jpeg
+*.png
+*.pdf
+
+# Cache do Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Configurações de IDE
+.vscode/
+.idea/
